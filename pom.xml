@@ -25,6 +25,7 @@
         <module>a-study-arithmetic-common</module>
         <module>b-study-arithmetic-array</module>
         <module>c-study-arithmetic-linked</module>
+        <module>d-study-arithmetic-skiplist</module>
         <module>e-study-arithmetic-tree</module>
         <module>f-study-arithmetic-graph</module>
     </modules>

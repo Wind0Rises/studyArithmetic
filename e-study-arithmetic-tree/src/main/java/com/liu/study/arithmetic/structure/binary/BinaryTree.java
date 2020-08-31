@@ -36,11 +36,17 @@ public class BinaryTree {
         return node;
     }
 
+    /**
+     * 遍历二叉树。
+     *
+     * @param tree
+     * @param level
+     */
     public void traverseBinaryTree(Node tree, int level) {
         if (tree != null) {
             System.out.println("第【" + level + "】层，数据为：" + tree.getData());
             traverseBinaryTree(tree.left, level + 1);
-            traverseBinaryTree(tree.right, level +1);
+            traverseBinaryTree(tree.right, level + 1);
         }
     }
 
@@ -94,7 +100,6 @@ public class BinaryTree {
         BinaryTree binaryTree = new BinaryTree();
         Node node = new BinaryTree(). new Node();
         binaryTree.createTree(node);
-
         binaryTree.traverseBinaryTree(node, 1);
     }
 
