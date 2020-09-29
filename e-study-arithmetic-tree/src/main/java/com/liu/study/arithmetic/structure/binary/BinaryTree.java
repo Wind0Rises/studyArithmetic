@@ -53,7 +53,7 @@ public class BinaryTree {
     /**
      * 树的节点。
      */
-    class Node {
+    static class Node {
         private String data;
 
         private Node left;
@@ -93,14 +93,6 @@ public class BinaryTree {
         public void setRight(Node right) {
             this.right = right;
         }
-    }
-
-
-    public static void main(String[] args) {
-        BinaryTree binaryTree = new BinaryTree();
-        Node node = new BinaryTree(). new Node();
-        binaryTree.createTree(node);
-        binaryTree.traverseBinaryTree(node, 1);
     }
 
 }
