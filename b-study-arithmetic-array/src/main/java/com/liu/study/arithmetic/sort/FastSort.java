@@ -15,13 +15,63 @@ public class FastSort {
     public static void main(String[] args) {
         int[] sortedArray = new int[]{1, 5, 45, 25, 6, 69, 34, 89, 28, 3};
 
+        for (int i = 0; i < sortedArray.length; i++) {
+            System.out.print(sortedArray[i] + ", ");
+        }
+        System.out.println();
+
         quickSort(sortedArray, 0, sortedArray.length - 1);
 
         for (int i = 0; i < sortedArray.length; i++) {
             System.out.print(sortedArray[i] + ", ");
         }
+    }
+
+
+
+    public void liu(int[] liu, int L, int R) {
+        int module = (L + R)/2;
+
+        int i = L;
+        int j = R;
+        int pivot = liu[module];
+
+        if(i < j) {
+            while (pivot > liu[i]) {
+                i++;
+            }
+
+            while(pivot < liu[j]) {
+                j++;
+            }
+
+            while (i <= j) {
+                int temp = liu[i];
+                liu[i] = liu[j];
+                liu[i] = temp;
+            }
+        }
+
+        if(L < j) {
+            liu(liu, L, j);
+        }
+
+        if (R > i) {
+
+        }
 
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
     /**
@@ -63,6 +113,11 @@ public class FastSort {
 
         //上面一个while保证了第一趟排序支点的左边比支点小，支点的右边比支点大了。
 
+        System.out.println("########################    支点：" + pivot + ",    i: " + i  + ",     j: " + j + "       #########################   ");
+        for (int w = 0; w < arr.length; w++) {
+            System.out.print(arr[w] + ", ");
+        }
+        System.out.println();
 
         //“左边”再做排序，直到左边剩下一个数(递归出口)
         if (L < j) {
