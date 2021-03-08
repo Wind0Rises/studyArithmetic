@@ -1,6 +1,5 @@
 package com.liu.study.arithmetic.queue;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
