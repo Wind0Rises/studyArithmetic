@@ -1,5 +1,8 @@
 package com.liu.study.arithmetic.interview;
 
+import com.liu.study.arithmetic.linked.DoubleLinkedListDemo;
+import com.liu.study.arithmetic.linked.SingleLinkedListDemo;
+
 /**
  * 链表面试题。
  *      1、获取单链表的节点的个数（如果带头节点的链表，需要不统计头节点。）
@@ -16,42 +19,54 @@ package com.liu.study.arithmetic.interview;
 public class SingleLinkedListInterview {
 
     public static void main(String[] args) {
+        /**
+         * 获取单链表的节点的个数（如果带头节点的链表，需要不统计头节点。）
+         */
+        // getSingleLinkedNodeCount();
 
+        /**
+         * 查询单链表中的倒数第K个节点。
+         */
+        // getBackwardsNode();
+
+        /**
+         * 单链表的翻转。
+         */
+        // singleLinkedInverse();
+
+        /**
+         * 从头到尾打印单链表。        -->     使用栈。
+         */
+        // singleLogInverse();
     }
 
     /**
-     * 单链表反转。
-     *
-     * --------         --------            ----------            --------
-     * | head |  -->    | first |    -->    | second |     -->   | three |
-     * --------         --------            ----------            --------
-     *
-     * 第一步：创建一个新的头节点，
-     * -----------
-     * | newHead |
-     * -----------
-     *
-     * 第二步：把第一个节点取下来，并放在newHead后面。
-     * ----------           ---------           ----------           ---------
-     * | newHead |  -->     | first |    -->    | second |     -->   | three |
-     * ----------           ---------           ----------          ---------
-     *
-     * 第三步：把第二个节点取下来，并放在newHead后面、first前面
-     * ----------           ---------           ----------
-     * | newHead |  -->     | second |    -->   | first  |
-     * ----------           ---------           ----------
-     *
-     *
-     * 最后步：把head节点的next指向新链表的第一个
-     * ----------        ---------          ---------           ----------
-     * | newHead |  -->  | three |   -->   | second |    -->    | first  |
-     * ----------        ---------          ---------           ----------
-     *                       ↑
-     *                       |
-     *                   -----------
-     *                   | newHead |
-     *                   -----------
-     *
+     * 获取单链表的节点的个数（如果带头节点的链表，需要不统计头节点。）
      */
+    public static void getSingleLinkedNodeCount() {
+        SingleLinkedListDemo.getSingleLinkedNodeCount();
+    }
+
+    /**
+     * 查询单链表中的倒数第K个节点。
+     */
+    public static void getBackwardsNode() {
+        SingleLinkedListDemo.backwardsNode(2);
+    }
+
+    /**
+     * 单链表的翻转。
+     */
+    public static void singleLinkedInverse() {
+        SingleLinkedListDemo.inverseProcessor();
+    }
+
+    /**
+     * 从头到尾打印单链表。        -->     使用栈。
+     */
+    public static void singleLogInverse() {
+        SingleLinkedListDemo.logInverse();
+    }
+
 
 }

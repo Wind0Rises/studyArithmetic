@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Stack;
+
 /**
  * 单链表：
  *
@@ -23,7 +25,15 @@ public class SingleLinkedListDemo {
 
         // updateTest();
 
-        deleteTest();
+        // deleteTest();
+
+        // getSingleLinkedNodeCount();
+
+        // backwardsNode(4);
+
+        // inverseProcessor();
+
+        logInverse();
     }
 
     /**
@@ -103,8 +113,87 @@ public class SingleLinkedListDemo {
         singleLinkedList.showLinked();
     }
 
+    /**
+     * 获取单链表的节点个数。
+     */
+    public static void getSingleLinkedNodeCount() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+
+        HeroNode heroNode1 = new HeroNode(1, "宋江", "及时雨", null);
+        HeroNode heroNode2 = new HeroNode(2, "吴用", "智多星", null);
+        HeroNode heroNode3 = new HeroNode(3, "卢俊义", "玉麒麟", null);
+
+        singleLinkedList.add(heroNode1);
+        singleLinkedList.add(heroNode2);
+        singleLinkedList.add(heroNode3);
+
+        System.out.println(singleLinkedList.getCount());
+    }
+
+    /**
+     *
+     * @param k
+     */
+    public static void backwardsNode(int k) {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+
+        HeroNode heroNode1 = new HeroNode(1, "宋江", "及时雨", null);
+        HeroNode heroNode2 = new HeroNode(2, "吴用", "智多星", null);
+        HeroNode heroNode3 = new HeroNode(3, "卢俊义", "玉麒麟", null);
+        HeroNode heroNode4 = new HeroNode(4, "林冲", "豹子头", null);
+
+        singleLinkedList.add(heroNode1);
+        singleLinkedList.add(heroNode2);
+        singleLinkedList.add(heroNode3);
+        singleLinkedList.add(heroNode4);
+
+        singleLinkedList.backwardsNode(k);
+    }
+
+    /**
+     * 反转操作。
+     */
+    public static void inverseProcessor() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+
+        HeroNode heroNode1 = new HeroNode(1, "宋江", "及时雨", null);
+        HeroNode heroNode2 = new HeroNode(2, "吴用", "智多星", null);
+        HeroNode heroNode3 = new HeroNode(3, "卢俊义", "玉麒麟", null);
+        HeroNode heroNode4 = new HeroNode(4, "林冲", "豹子头", null);
+
+        singleLinkedList.add(heroNode1);
+        singleLinkedList.add(heroNode2);
+        singleLinkedList.add(heroNode3);
+        singleLinkedList.add(heroNode4);
+
+        singleLinkedList.showLinked();
+
+        singleLinkedList.inverse();
+        System.out.println();
+        singleLinkedList.showLinked();
+    }
+
+    /**
+     * 反转打印
+     */
+    public static void logInverse() {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+
+        HeroNode heroNode1 = new HeroNode(1, "宋江", "及时雨", null);
+        HeroNode heroNode2 = new HeroNode(2, "吴用", "智多星", null);
+        HeroNode heroNode3 = new HeroNode(3, "卢俊义", "玉麒麟", null);
+        HeroNode heroNode4 = new HeroNode(4, "林冲", "豹子头", null);
+
+        singleLinkedList.add(heroNode1);
+        singleLinkedList.add(heroNode2);
+        singleLinkedList.add(heroNode3);
+        singleLinkedList.add(heroNode4);
+
+        singleLinkedList.logInverse();
 
 
+
+    }
 
 
 
@@ -244,6 +333,134 @@ public class SingleLinkedListDemo {
                 System.out.println("要删除的元素不存在。");
             }
 
+        }
+
+
+        /**
+         * 获取节点的个数。
+         * @return
+         */
+        public int getCount() {
+            if (null == head.getNext()) {
+                return 0;
+            }
+
+            HeroNode temp = head.getNext();
+            int i = 1;
+            while (true) {
+                if (null == temp.getNext()) {
+                    break;
+                }
+                i++;
+                temp = temp.getNext();
+            }
+            return i;
+        }
+
+
+        /**
+         *
+         * @param k
+         */
+        public void backwardsNode(int k) {
+            final int count = getCount();
+            if (k > count || k < 0) {
+                throw new RuntimeException("数据异常");
+            }
+
+            HeroNode heroNode = head.getNext();
+            for (int i = 0; i < count - k; i++) {
+                heroNode = heroNode.getNext();
+            }
+            System.out.println(heroNode.toString());
+        }
+
+
+
+        /**
+         * 单链表反转。
+         *
+         * --------         --------            ----------            --------
+         * | head |  -->    | first |    -->    | second |     -->   | three |
+         * --------         --------            ----------            --------
+         *
+         * 第一步：创建一个新的头节点，
+         * -----------
+         * | newHead |
+         * -----------
+         *
+         * 第二步：把第一个节点取下来，并放在newHead后面。
+         * ----------           ---------           ----------           ---------
+         * | newHead |  -->     | first |    -->    | second |     -->   | three |
+         * ----------           ---------           ----------          ---------
+         *
+         * 第三步：把第二个节点取下来，并放在newHead后面、first前面
+         * ----------           ---------           ----------
+         * | newHead |  -->     | second |    -->   | first  |
+         * ----------           ---------           ----------
+         *
+         *
+         * 最后步：把head节点的next指向新链表的第一个
+         * ----------        ---------          ---------           ----------
+         * | newHead |  -->  | three |   -->   | second |    -->    | first  |
+         * ----------        ---------          ---------           ----------
+         *                       ↑
+         *                       |
+         *                   -----------
+         *                   | newHead |
+         *                   -----------
+         *
+         */
+        public void inverse() {
+            if (head.getNext() == null) {
+                throw new RuntimeException("数据为空~~~~~~~~~");
+            }
+
+            HeroNode newHead = new HeroNode();
+            while (true) {
+                if (null == head.next) {
+                    break;
+                }
+
+                if (newHead.next == null) {
+                    HeroNode heroNode = head.next;
+                    newHead.next = heroNode;
+                    head.next = head.next.next;
+                    heroNode.next = null;
+                    continue;
+                }
+
+                HeroNode heroNode = head.next;
+                head.next = head.next.next;
+
+                HeroNode newHeadNext = newHead.next;
+                newHead.next = heroNode;
+                heroNode.next = newHeadNext;
+            }
+
+            head.next = newHead.next;
+        }
+
+        /**
+         * 倒叙打印
+         */
+        public void logInverse() {
+            HeroNode temp = head;
+
+            Stack<HeroNode> stack = new Stack<HeroNode>();
+            while (true) {
+
+                if (null == temp.next) {
+                    break;
+                }
+
+                stack.push(temp.next);
+                temp = temp.next;
+            }
+
+            while (!stack.empty()) {
+                System.out.println(stack.pop().toString());
+            }
         }
 
     }
