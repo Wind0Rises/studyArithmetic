@@ -3,7 +3,7 @@ package com.liu.study.arithmetic.structure.binary;
 import java.util.Scanner;
 
 /**
- * @desc 二叉树。
+ * 二叉树。
  * @author Liuweian
  * @createTime 2020/4/29 22:10
  * @version 1.0.0
