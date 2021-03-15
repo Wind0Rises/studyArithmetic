@@ -3,7 +3,13 @@ package com.liu.study.arithmetic.structure.binary;
 import java.util.Scanner;
 
 /**
- * 二叉树。
+ * 二叉树：
+ *      1.每个节点最多只有两个子节点。
+ *
+ * 满二叉树、完全二叉树
+ * 顺序二叉树。
+ *
+ *
  * @author Liuweian
  * @createTime 2020/4/29 22:10
  * @version 1.0.0
